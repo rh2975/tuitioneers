@@ -37,7 +37,10 @@
           {% for teacher in teachers %}
             <div class="col-lg-5 col-md-6 portfolio-item filter-app">
               <div class="portfolio-wrap" onclick="window.location.href='{% url 'teacher' teacher.id %}'">
-                <img src="{{ teacher.details.pic.url }}" class="img-fluid" alt="" style="height: 700px; width: 100%;">
+                {% comment %} <img src="{{ teacher.details.pic.url }}" class="img-fluid" alt="" style="height: 700px; width: 100%;"> {% endcomment %}
+                {% if teacher.id == 1 %}<img src="{% static 'img/uploads/368-kakashi.png' %}" class="img-fluid" alt="" style="height: 700px; width: 100%;">
+                {% elif teacher.id == 2 %}<img src="{% static 'img/uploads/368-kakashi_Wco31Ty.png' %}" class="img-fluid" alt="" style="height: 700px; width: 100%;">
+                {% endif %}
                 <div class="portfolio-info">
                   <h3>{{ teacher.details.name }}</h3>
                   <p style="text-transform: none;">{{ teacher.details.subtitle }}</p>
