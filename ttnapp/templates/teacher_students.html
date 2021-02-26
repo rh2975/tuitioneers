@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-
+  {% load static %}
   {% block title %}
     Students
   {% endblock %}
@@ -17,7 +17,10 @@
           {% for student in students %}
             <div class="col-lg-4 col-md-6 portfolio-item filter-app">
               <div class="portfolio-wrap" onclick="window.location.href='{% url 'student' student.id %}'">
-                <img src="{{ student.details.pic.url }}" class="img-fluid" alt="" style="height: 580px;">
+                {% comment %} <img src="{{ student.details.pic.url }}" class="img-fluid" alt="" style="height: 580px;"> {% endcomment %}
+                {% if student.id == 1 %}<img src="{% static 'img/uploads/128878424_435200464309980_3090279836481231981_o_1GovWXL.jpg' %}" class="img-fluid" alt="" style="height: 580px;">
+                {% elif student.id == 2 %}<img src="{% static 'img/uploads/30706333_1816569825316756_8932223848900722688_n_ibyBeuk.jpg' %}" class="img-fluid" alt="" style="height: 580px;">
+                {% endif %}
                 <div class="portfolio-info">
                   <h3>{{ student.details.name }}</h3>
                   <p style="text-transform: none;">{{ student.details.subtitle }}</p>

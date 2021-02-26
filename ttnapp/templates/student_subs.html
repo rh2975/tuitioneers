@@ -21,7 +21,13 @@
                 onclick="window.location.href='{% url 'subject_exams' student.id subject.id %}'"
               >
                 <!-- <div class="icon"><i class="bx bxl-dribbble"></i></div> -->
-                <div class="icon" style="height: 250px;"><img src="{{ subject.pic.url }}" alt="{{ subject.name }}" height="100%;" width="100%;"></div>
+                <div class="icon" style="height: 250px;">
+                <img src="{{ subject.pic.url }}" alt="{{ subject.name }}" height="100%;" width="100%;">
+                {% if subject.id == 1 %}<img src="{% static 'img/emc.png' %}" alt="Physics" height="100%;" width="100%;">
+                {% elif subject.id == 2 %}<img src="{% static 'img/math1.jpg' %}" alt="Math" height="100%;" width="100%;">
+                {% elif subject.id == 3 %}<img src="{% static 'img/chem1.jpg' %}" alt="Chemistry" height="100%;" width="100%;">
+                {% endif %}
+                </div>
                 <h4 style="text-align: center; color: #18d26e; margin-top: 1.5%;">{{ subject.name }}</h4>
               </div>
             </div>
