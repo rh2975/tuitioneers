@@ -14,51 +14,28 @@
           <p style="text-transform: none;">Check out your aces...</p>
         </div>
         <div class="row" style="margin-top: 2%;">
-          {% comment %} {% for subject in subjects %}
+          {% for subject in subjects %}
             
             <div class="col-lg-4 col-md-6 sub-image">
               <div class="" 
                 onclick="window.location.href='{% url 'subject_exams' student.id subject.id %}'"
               >
                 <!-- <div class="icon"><i class="bx bxl-dribbble"></i></div> -->
-                <div class="icon" style="height: 250px;"><img src="{{ subject.pic.url }}" alt="{{ subject.name }}" height="100%;" width="100%;"></div>
+                <div class="icon" style="height: 250px;">
+                {% comment %} <img src="{{ subject.pic.url }}" alt="{{ subject.name }}" height="100%;" width="100%;"> {% endcomment %}
+                {% if subject.id == 1 %}<img src="{% static 'img/emc.png' %}" alt="Physics" height="100%;" width="100%;">
+                {% elif subject.id == 2 %}<img src="{% static 'img/math1.jpg' %}" alt="Math" height="100%;" width="100%;">
+                {% elif subject.id == 3 %}<img src="{% static 'img/chem1.jpg' %}" alt="Chemistry" height="100%;" width="100%;">
+                {% endif %}
+                </div>
                 <h4 style="text-align: center; color: #18d26e; margin-top: 1.5%;">{{ subject.name }}</h4>
               </div>
             </div>
             
-          {% endfor %} {% endcomment %}
-            <div class="col-lg-4 col-md-6 sub-image">
-              <div class="" 
-                onclick="window.location.href='{% url 'subject_exams' student.id 1 %}'"
-              >
-                <!-- <div class="icon"><i class="bx bxl-dribbble"></i></div> -->
-                <div class="icon" style="height: 250px;"><img src="{% static 'img/emc.png' %}" alt="Physics" height="100%;" width="100%;"></div>
-                <h4 style="text-align: center; color: #18d26e; margin-top: 1.5%;">Physics</h4>
-              </div>
-            </div>
+          {% endfor %}
 
-            <div class="col-lg-4 col-md-6 sub-image">
-              <div class="" 
-                onclick="window.location.href='{% url 'subject_exams' student.id 2 %}'"
-              >
-                <!-- <div class="icon"><i class="bx bxl-dribbble"></i></div> -->
-                <div class="icon" style="height: 250px;"><img src="{% static 'img/math1.jpg' %}" alt="Math" height="100%;" width="100%;"></div>
-                <h4 style="text-align: center; color: #18d26e; margin-top: 1.5%;">Math</h4>
-              </div>
-            </div>
-
-            <div class="col-lg-4 col-md-6 sub-image">
-              <div class="" 
-                onclick="window.location.href='{% url 'subject_exams' student.id 3 %}'"
-              >
-                <!-- <div class="icon"><i class="bx bxl-dribbble"></i></div> -->
-                <div class="icon" style="height: 250px;"><img src="{% static 'img/chem1.jpg' %}" alt="Chemistry" height="100%;" width="100%;"></div>
-                <h4 style="text-align: center; color: #18d26e; margin-top: 1.5%;">Chemistry</h4>
-              </div>
-            </div>
         </div>
-
-
+        
       </div>
 
   {% endblock %}
