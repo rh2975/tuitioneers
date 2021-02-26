@@ -11,19 +11,18 @@
         <h1 style="margin-bottom: 2%; font-weight: bold;"><a href="{% url 'index' %}" style="color: white;">Tuitioneers</a></h1>
         <div class="section-title">
           <h2>Students</h2>
-          <!-- <p style="text-transform: none;">Well actually, vaiyas :V</p> -->
         </div>
 
         <div class="row portfolio-container" style="display: flex; justify-content: space-between; " >
           {% for student in students %}
             <div class="col-lg-4 col-md-6 portfolio-item filter-app">
-              <div class="portfolio-wrap">
+              <div class="portfolio-wrap" onclick="window.location.href='{% url 'student' student.id %}'">
                 <img src="{{ student.details.pic.url }}" class="img-fluid" alt="" style="height: 580px;">
                 <div class="portfolio-info">
                   <h3>{{ student.details.name }}</h3>
                   <p style="text-transform: none;">{{ student.details.subtitle }}</p>
                   <div class="portfolio-links">
-                    <a href="{{ student.details.pic.url }}" data-gallery="portfolioGallery" class="portfolio-lightbox" title=""><i class="bx bx-plus"></i></a>
+                    {% comment %} <a href="{{ student.details.pic.url }}" data-gallery="portfolioGallery" class="portfolio-lightbox" title=""><i class="bx bx-plus"></i></a> {% endcomment %}
                     <a href="{% url 'student' student.id %}" title=""><i class="bx bx-link"></i></a>
                   </div>
                 </div>
