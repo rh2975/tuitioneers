@@ -1,5 +1,5 @@
 from django.db import models
-
+import datetime
 
 class Person(models.Model):
     name = models.CharField(max_length=200)
@@ -34,3 +34,4 @@ class Exam(models.Model):
     fullmarks = models.IntegerField(default=100)
     subject = models.ForeignKey(Subject, on_delete=models.CASCADE, related_name="subject_exam")
     student = models.ForeignKey(Student, on_delete=models.CASCADE, related_name="student_exam")
+    date = models.DateField(("Date"), default=datetime.date.today())
