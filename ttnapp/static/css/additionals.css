@@ -10,7 +10,7 @@
 
 @media (max-width: 992px) {
   .resp {
-    width: 60%;
+    width: 100%;
   }  
 }
 
@@ -21,6 +21,6 @@
 
 @media (max-width: 992px) {
   .resp2 {
-    width: 80%;
+    width: 100%;
   }  
 }
