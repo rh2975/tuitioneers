@@ -11,6 +11,7 @@
 @media (max-width: 992px) {
   .resp {
     width: 100%;
+    height: 500px;
   }  
 }
 
@@ -22,5 +23,6 @@
 @media (max-width: 992px) {
   .resp2 {
     width: 100%;
+    height: 500px;
   }  
 }
