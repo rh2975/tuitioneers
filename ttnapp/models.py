@@ -1,12 +1,12 @@
 from django.db import models
-
+import datetime
 
 class Person(models.Model):
     name = models.CharField(max_length=200)
     subtitle = models.CharField(max_length=100, blank=True)
     phone = models.CharField(max_length=50)
     email = models.EmailField(max_length=250)
-    pic = models.ImageField(default="uploads/368-kakashi.png", upload_to="uploads/", blank=True)
+    pic = models.ImageField(default="ttnapp/static/img/uploads/368-kakashi.png", upload_to="uploads/", blank=True)
     details = models.CharField(max_length=1000, blank=True)
     fb = models.CharField(max_length=100, blank=True)
     insta = models.CharField(max_length=100, blank=True)
@@ -30,6 +30,8 @@ class Subject(models.Model):
 
 class Exam(models.Model):
     name = models.CharField(max_length=200)
-    marks = models.IntegerField(default=0)
+    obtained_marks = models.IntegerField(default=0)
+    fullmarks = models.IntegerField(default=100)
     subject = models.ForeignKey(Subject, on_delete=models.CASCADE, related_name="subject_exam")
     student = models.ForeignKey(Student, on_delete=models.CASCADE, related_name="student_exam")
+    date = models.DateField(("Date"), default=datetime.date.today())

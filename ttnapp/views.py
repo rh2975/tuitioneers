@@ -60,10 +60,13 @@ def subject_marks(request, student_id, subject_id, exam_id):
     try:
         subject = Subject.objects.get(pk=subject_id)
         exam = Exam.objects.get(pk=exam_id)
+        percent = exam.obtained_marks / exam.fullmarks * 100
+        percent = str(round(percent, 2))
     except Student.DoesNotExist:
         raise Http404("No subjects sorry :3")
     context = {
         "subject": subject,
         "exam": exam,
+        "percent": percent
     }
     return render(request, "subject_marks.html", context)
